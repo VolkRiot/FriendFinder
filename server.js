@@ -1,22 +1,21 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const path = require("path");
+const PORT = process.env.PORT || 8080;
 
 const app = express();
-const port = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-app.use(express.static(path.join(__dirname, '/app')));
+app.use(express.static(path.join(__dirname, 'app/public')));
 
-require('./app/routing/htmlRoutes.js')(app);
 require('./app/routing/apiRoutes.js')(app);
+require('./app/routing/htmlRoutes.js')(app);
 
 
-
-app.listen(port, () => {
-  console.log("Listening on " + port);
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
