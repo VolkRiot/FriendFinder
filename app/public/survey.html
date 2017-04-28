@@ -26,14 +26,20 @@
 
   <h3><strong>About You</strong></h3>
   <h4>Name (Required)</h4>
-  <input type="text" name="" id="name" class="form-control" required>
+  <div class="form-group">
+    <label for="name"></label>
+    <input type="text" name="" id="name" class="form-control" required>
+  </div>
 
   <h4>Link to Photo Image (Required)</h4>
-  <input type="text" name="" id="photo" class="form-control" required>
+  <div class="form-group">
+    <label for="photo"></label>
+    <input type="text" name="" id="photo" class="form-control" required>
+  </div>
 
   <hr>
 
-  <h3><strong>Question 1</strong></h3>
+  <h3><strong><label for="q1">Question 1</label></strong></h3>
   <h4>Your agree that sometime science is more art than science.</h4>
   <select data-placeholder="" class="chosen-select" id="q1">
     <option value=""></option>
@@ -44,7 +50,7 @@
     <option value="5">5 (Strongly Agree)</option>
   </select>
 
-  <h3><strong>Question 2</strong></h3>
+  <h3><strong><label for="q2">Question 2</label></strong></h3>
   <h4>Is it important for you to like stay, totally stoked about, like, the general vibe, and stuff?</h4>
   <select data-placeholder="" class="chosen-select" id="q2">
     <option value=""></option>
@@ -56,7 +62,7 @@
   </select>
 
 
-  <h3><strong>Question 3</strong></h3>
+  <h3><strong><label for="q3">Question 3</label></strong></h3>
   <h4>Oo-wee! Are you always happy and upbeat with everyone.</h4>
   <select data-placeholder="" class="chosen-select" id="q3">
     <option value=""></option>
@@ -68,7 +74,7 @@
   </select>
 
 
-  <h3><strong>Question 4</strong></h3>
+  <h3><strong><label for="q4">Question 4</label></strong></h3>
   <h4>Nobody exists on purpose. Nobody belongs anywhere. We're all going to die. Come watch TV.</h4>
   <select data-placeholder="" class="chosen-select" id="q4">
     <option value=""></option>
@@ -80,7 +86,7 @@
   </select>
 
 
-  <h3><strong>Question 5</strong></h3>
+  <h3><strong><label for="q5">Question 5</label></strong></h3>
   <h4>You ask a lot of questions which make you appear as more of an underfoot character.</h4>
   <select data-placeholder="" class="chosen-select" id="q5">
     <option value=""></option>
@@ -92,7 +98,7 @@
   </select>
 
 
-  <h3><strong>Question 6</strong></h3>
+  <h3><strong><label for="q6">Question 6</label></strong></h3>
   <h4>You have a grandfather who is like a total dick.</h4>
   <select data-placeholder="" class="chosen-select" id="q6">
     <option value=""></option>
@@ -104,7 +110,7 @@
   </select>
 
 
-  <h3><strong>Question 7</strong></h3>
+  <h3><strong><label for="q7">Question 7</label></strong></h3>
   <h4>You don't get things and you don't need to.</h4>
   <select data-placeholder="" class="chosen-select" id="q7">
     <option value=""></option>
@@ -115,7 +121,7 @@
     <option value="5">5 (Strongly Agree)</option>
   </select>
 
-  <h3><strong>Question 8</strong></h3>
+  <h3><strong><label for="q8">Question 8</label></strong></h3>
   <h4>You are incredibly talented but your potential has been wasted on things like cardiovascular horse surgery.</h4>
   <select data-placeholder="" class="chosen-select" id="q8">
     <option value=""></option>
@@ -126,7 +132,7 @@
     <option value="5">5 (Strongly Agree)</option>
   </select>
 
-  <h3><strong>Question 9</strong></h3>
+  <h3><strong><label for="q9">Question 9</label></strong></h3>
   <h4>You have the sort of life philosophy that would get one laid in college.</h4>
   <select data-placeholder="" class="chosen-select" id="q9">
     <option value=""></option>
@@ -137,7 +143,7 @@
     <option value="5">5 (Strongly Agree)</option>
   </select>
 
-  <h3><strong>Question 10</strong></h3>
+  <h3><strong><label for="q10">Question 10</label></strong></h3>
   <h4>You think for yourself.</h4>
   <select data-placeholder="" class="chosen-select" id="q10">
     <option value=""></option>
@@ -152,7 +158,7 @@
   <br>
 
   <!-- Submit Button -->
-  <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
+  <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit-profile"><i class="fa fa-check-circle" aria-hidden="true"></i>
     Submit</button>
 
   <hr>
@@ -185,10 +191,6 @@
   </div>
 </div>
 
-<script type="text/javascript">
-
-
-</script>
-
+<script type="text/javascript" src="assets/js/survey.js"></script>
 </body>
 </html>
