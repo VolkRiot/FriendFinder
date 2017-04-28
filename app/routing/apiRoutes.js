@@ -1,7 +1,6 @@
-const path = require('path');
-const friends = require('../data/friends.js');
+module.exports = (app, path)=> {
 
-module.exports = app => {
+  const friends = require('../data/friends.js');
 
   app.get('/api/friends', (req, res) =>{
     res.json(friends);
