@@ -1,31 +1,29 @@
-module.exports = (app, path)=> {
+module.exports = (app, path) => {
+  const friends = require('../data/friends.js')
 
-  const friends = require('../data/friends.js');
+  app.get('/api/friends', (req, res) => {
+    res.json(friends)
+  })
 
-  app.get('/api/friends', (req, res) =>{
-    res.json(friends);
-  });
-
-  app.post('/api/friends', (req, res) =>{
-    let smDiff = Number.POSITIVE_INFINITY;
-    let user = req.body;
+  app.post('/api/friends', (req, res) => {
+    let smDiff = Number.POSITIVE_INFINITY
+    let user = req.body
     let bestMatch = undefined;
 
-    friends.forEach(friend =>{
-      let totalDiff = 0;
+    friends.forEach(friend => {
+      let totalDiff = 0
 
-      friend.scores.forEach((answer, i)=>{
-        totalDiff += Math.abs(parseInt(user.scores[i]) - answer);
-      });
+      friend.scores.forEach((answer, i) => {
+        totalDiff += Math.abs(parseInt(user.scores[i]) - answer)
+      })
 
-      if(smDiff > totalDiff){
-        smDiff = totalDiff;
-        bestMatch = friend;
+      if (smDiff > totalDiff) {
+        smDiff = totalDiff
+        bestMatch = friend
       }
-    });
+    })
 
-    friends.push(user);
-    res.send(bestMatch);
-  });
-
-};
+    friends.push(user)
+    res.send(bestMatch)
+  })
+}
