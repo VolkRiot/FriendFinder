@@ -42,8 +42,13 @@ $(document).ready(function() {
 
       $.post('/api/friends', user).done(response => {
         match = response
-        console.log(response);
-        // TODO: Build the modal and show it
+        $("#match-name").text(response.name)
+        $("#match-img").attr({
+          src: response.photo,
+          alt: response.name
+        })
+        $("#results-modal").modal()
+
       })
     })
   })
