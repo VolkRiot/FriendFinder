@@ -1,7 +1,7 @@
 /**
  * Created by mikhailmetrikin on 4/27/17.
  */
-$(document).ready(() => {
+$(document).ready(function() {
   'use strict'
 
   $.get('/api/friends').done(response => {
@@ -24,13 +24,14 @@ $(document).ready(() => {
       let answers = []
 
       try {
-        $('.chosen-select').each(() => {
+        $('.chosen-select').each(function() {
           let option = $(this).val()
           if (!option) {
             throw new Error('Some questions are unanswered')
           }
           answers.push(option)
         })
+
       } catch (e) {
         // TODO: Logic to indicate that player did not answer all q's
         alert('Please answer all of the questions')
@@ -41,6 +42,7 @@ $(document).ready(() => {
 
       $.post('/api/friends', user).done(response => {
         match = response
+        console.log(response);
         // TODO: Build the modal and show it
       })
     })
