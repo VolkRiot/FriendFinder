@@ -19,25 +19,23 @@ $(document).ready(function() {
         return
       }
 
-      user.name = name
-      user.photo = photo
-      let answers = []
+      user.name = name;
+      user.photo = photo;
+      let answers = [];
+      let done = true;
 
-      try {
-        $('.chosen-select').each(function() {
-          let option = $(this).val()
-          if (!option) {
-            throw new Error('Some questions are unanswered')
-          }
-          answers.push(option)
-        })
+      $('.chosen-select').each(function() {
+        let option = $(this).val()
+        if (!option) {
+          // TODO: Logic to indicate that player did not answer all q's
+          alert('Please answer all of the questions')
+          done = false;
+          return done;
+        }
+        answers.push(option);
+      });
 
-      } catch (e) {
-        // TODO: Logic to indicate that player did not answer all q's
-        alert('Please answer all of the questions')
-        return
-      }
-
+      if(!done) return
       user.scores = answers
 
       $.post('/api/friends', user).done(response => {

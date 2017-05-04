@@ -7,14 +7,21 @@ module.exports = (app, path) => {
 
   app.post('/api/friends', (req, res) => {
     let smDiff = Number.POSITIVE_INFINITY
-    let user = req.body
+    let user = {};
+
+    user.name = req.body.name;
+    user.photo = req.body.photo;
+    user.scores = req.body.scores.map((item)=>{
+      return parseInt(item);
+    });
+
     let bestMatch = undefined;
 
     friends.forEach(friend => {
       let totalDiff = 0
 
       friend.scores.forEach((answer, i) => {
-        totalDiff += Math.abs(parseInt(user.scores[i]) - answer)
+        totalDiff += Math.abs(user.scores[i] - answer)
       })
 
       if (smDiff > totalDiff) {
