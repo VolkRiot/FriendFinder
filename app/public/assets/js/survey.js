@@ -4,37 +4,37 @@
 $(document).ready(function () {
   'use strict';
 
-  $.get('/api/friends').done(response => {
-    let user = {};
-
     $('#submit-profile').on('click', () => {
-      let name = $('#name').val().trim();
-      let photo = $('#photo').val().trim();
+      // There's no need to wrap the handler inside of an ajax callback since you're not using any of the results from it.
+      // Also, you may as well define your user object on the smallest scope possible so you don't have to
+      // be as concerned with state management. Defining your user here gives you the peace of mind that it
+      // will always be what you see below. Defining it outside means you can't assign properties to it until
+      // you're sure they're ready to be posted to your server and that's unnecessary mental overhead.
+      let user = {
+        name: $('#name').val().trim(),
+        photo: $('#photo').val().trim(),
+        scores: []
+      };
 
-      if (!name || !photo) {
+      if (!user.name || !user.photo) {
         // TODO: Maybe a modal added here
         alert('Please Enter both your name and a source for an image');
         return;
       }
 
-      user.name = name;
-      user.photo = photo;
-      let answers = [];
       let done = true;
 
       $('.chosen-select').each(function () {
         let option = $(this).val();
         if (!option) {
-          // TODO: Logic to indicate that player did not answer all q's
           alert('Please answer all of the questions');
           done = false;
           return done;
         }
-        answers.push(option);
+        user.scores.push(option);
       });
 
       if (!done) return;
-      user.scores = answers;
 
       $.post('/api/friends', user).done(response => {
         $('#match-name').text(response.name);
@@ -45,5 +45,5 @@ $(document).ready(function () {
         $('#results-modal').modal();
       });
     });
-  });
+
 });
